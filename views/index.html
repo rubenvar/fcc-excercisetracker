@@ -8,27 +8,39 @@
   <body>
     <main>
       <h1>freeCodeCamp Exercise Tracker</h1>
+      <h2>Create a New User</h2>
+      <p><code>POST /api/exercise/new-user</code></p>
       <form action="/api/exercise/new-user" method="post">
-        <h2>Create a New User</h2>
-        <p><code>POST /api/exercise/new-user</code></p>
         <input id="uname" type="text" name="username" placeholder="username" />
-        <input type="submit" value="Submit" />
+        <button type="submit">Submit</button>
       </form>
+      <h2>Get a list of users</h2>
+      <p>
+        <code>GET <a href="/api/exercise/users">/api/exercise/users</a></code>
+      </p>
+      <h2>Add exercises</h2>
+      <p><code>POST /api/exercise/add</code></p>
       <form action="/api/exercise/add" method="post">
-        <h2>Add exercises</h2>
-        <p><code>POST /api/exercise/add</code></p>
-        <input id="uid" type="text" name="userId" placeholder="userId*" />
+        <input
+          id="uid"
+          type="text"
+          name="userId"
+          placeholder="userId*"
+          value="600aba0c1cfaa1076f1c5174"
+        />
         <input
           id="desc"
           type="text"
           name="description"
           placeholder="description*"
+          value="testing this thing"
         />
         <input
           id="dur"
           type="text"
           name="duration"
           placeholder="duration* (mins.)"
+          value="43"
         />
         <input
           id="dat"
@@ -36,14 +48,39 @@
           name="date"
           placeholder="date (yyyy-mm-dd)"
         />
-        <input type="submit" value="Submit" />
+        <button type="submit">Submit</button>
       </form>
+      <h2>GET users's exercise log:</h2>
       <p>
-        <strong>GET users's exercise log: </strong
-        ><code
-          >GET /api/exercise/log?{userId}[&amp;from][&amp;to][&amp;limit]</code
-        >
+        <code>
+          GET /api/exercise/log?{userId}[&amp;from][&amp;to][&amp;limit]
+        </code>
       </p>
+      <form action="/api/exercise/log" method="GET">
+        <input
+          type="text"
+          name="userId"
+          id="user"
+          placeholder="userId*"
+          value="600aba0c1cfaa1076f1c5174"
+        />
+        <input
+          type="text"
+          name="from"
+          id="from"
+          placeholder="from"
+          value="1990-01-01"
+        />
+        <input
+          type="text"
+          name="to"
+          id="to"
+          placeholder="to"
+          value="2005-12-31"
+        />
+        <input type="number" name="limit" id="limit" placeholder="limit" />
+        <button type="submit">Submit</button>
+      </form>
       <p><strong>{ }</strong> = required, <strong>[ ]</strong> = optional</p>
       <p>
         <strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> =
